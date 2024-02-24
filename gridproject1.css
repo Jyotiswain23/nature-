@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Bodoni Moda',serif;
+    font-size: 1.2rem;
+}
+
+.container{
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(to right, #041308, #0b3317 );
+
+}
+
+.left-text{
+    flex-basis: 30%;
+
+
+}
+
+
+
+.heading{
+    font-size: 3rem;
+    color:white;
+    text-align: center;
+}
+
+.subheading{
+    color: #ddd;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.gallery{
+    flex-basis: 50%;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 120px;
+    border-style: double;
+   /* border-color: gray;*/
+}
+
+.box{
+    background-size:cover; /* image na kate*/
+    background-position: top; /*top wali image dikhe */
+    color: white;
+    /* for aligning text at center*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* image k uper  overlay aae (thoda dark blcack color ka dikhai de) */
+    /*  iska bhi 2 tarika hota hai 
+    1----- apna 1 div bnao fr usko apne box k upr m chdha do, uske bd us div ki hght or width box k hsb se set kr k us box ki tansparency set kr skte hai 
+
+    2---- kyuki hm  yha pe bckgrnd img k sth km kr rhe or hm ni chahte koi gradient dlna evely use krna h  islye hm 2nd mth use krnge */
+
+    /*BACKGROUND-BLEND mode = iske liye hme 2 backgground set krna pdega which is bacckground cclr */
+    background-color: #222;
+    background-blend-mode: hard-light;
+    transition: all 1s ease-in-out;/* smoothly dusra bckgrnd apply ho rh ah ..... sara transition 1 second m hona chye */
+    /* to change our cursro to pointer */
+    cursor: pointer;
+}
+
+/* apne grid k andr dalna h (scroll krne wala )*/
+/*method-1
+#box-1{ */
+   /* grid-column: span 2; yh box-1 ka waterrfall image 2 columns ka jgh le lega */
+   /*grid-row: span 2/auto;   ..... start span 2 se krega or khtm auto m.....nnhi llikhnge th b wh auto m hi le jaega 
+} */
+
+/* sudo-selector.... hover*/
+/* hover krne  pr kya kya kse chng hoga wh ismai mntn krna hai */
+.box:hover{
+    background-color: #999;/* change bckground clr whenever we hover the image*/
+    background-position: center;
+    box-shadow: 0 0 4px white;   /* 0- horizontal, 0- vertical, 4px- blur & color-white*/
+}
+
+/* but in place of this we ccreate an utility class*/
+.row-2{
+    grid-row: span 2;
+}
+
+.col-2{
+    grid-column: span 2;
+}
